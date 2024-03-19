@@ -1,1 +1,20 @@
-kubetl dry
+kubetl run pod1 --image=nginx --dry-run=client -o yaml >> question1.yaml
+vim question1.yaml
+
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: pod1
+  name: pod1
+spec: 
+  containers: nginx
+  -  name: pod1
+     resources: {}
+  -  image: redis
+     name: redis
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+
